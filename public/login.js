@@ -9,7 +9,7 @@ document.getElementById("loginPassword").onclick = function () {
     }
     document.getElementById("sendOtp").classList.add("hidden");
 
-    fetch("http://localhost:3000/check-user", {
+    fetch("http://10.21.67.205:3000/check-user", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -27,7 +27,7 @@ document.getElementById("loginPassword").onclick = function () {
                 document.getElementById("sendOtp").classList.add("hidden");
                 document.getElementById("email").classList.add("hidden");
 
-                fetch("http://localhost:3000/send-otp", {
+                fetch("http://10.21.67.205:3000/send-otp", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -59,7 +59,7 @@ document.getElementById("sendOtp").onclick = function () {
         return;
     }
 
-    fetch("http://localhost:3000/check-user", {
+    fetch("http://10.21.67.205:3000/check-user", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -78,13 +78,17 @@ document.getElementById("sendOtp").onclick = function () {
                 document.getElementById("email").classList.add("hidden");
 
 
-                fetch("http://localhost:3000/send-otp", {
+                fetch("http://10.21.67.205:3000/send-otp", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({ email: emailf })
-                });
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log("OTP received:", data.otp);
+                    });
 
 
 
@@ -114,7 +118,7 @@ document.getElementById("verifyOtp").onclick = function () {
         return;
     }
 
-    fetch("http://localhost:3000/log-ver-otp", {
+    fetch("http://10.21.67.205:3000/log-ver-otp", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -126,7 +130,7 @@ document.getElementById("verifyOtp").onclick = function () {
     })
         .then(res => res.json())
         .then(data => {
-             console.log(data);
+            console.log(data);
 
             if (data.message === "OTP verified") {
                 alert("Login successful");
@@ -156,7 +160,7 @@ document.getElementById("login").onclick = function () {
         return;
     }
 
-    fetch("http://localhost:3000/login-password", {
+    fetch("http://10.21.67.205:3000/login-password", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

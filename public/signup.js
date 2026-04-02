@@ -12,7 +12,7 @@ document.getElementById("sendOtp").onclick = function () {
         return;
     }
 
-    fetch("http://localhost:3000/check-user", {
+    fetch("http://10.21.67.205:3000/check-user", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -34,7 +34,7 @@ document.getElementById("sendOtp").onclick = function () {
 
 
 
-                fetch("http://localhost:3000/send-otp", {
+                fetch("http://10.21.67.205:3000/send-otp", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -74,7 +74,7 @@ document.getElementById("versign").addEventListener("click", function (e) {
         return;
     }
 
-    fetch("http://localhost:3000/signup-ver-otp", {
+    fetch("http://10.21.67.205:3000/signup-ver-otp", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -86,7 +86,7 @@ document.getElementById("versign").addEventListener("click", function (e) {
 
             if (data.message == "OTP verified") {
                 const user = { name, email, password };
-                fetch("http://localhost:3000/signup", {
+                fetch("http://10.21.67.205:3000/signup", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

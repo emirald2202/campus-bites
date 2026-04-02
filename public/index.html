@@ -49,13 +49,18 @@
         body::before {
             content: "";
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: var(--glass-bg);
             z-index: -1;
             transition: background 0.3s ease;
         }
 
-        .hidden { display: none !important; }
+        .hidden {
+            display: none !important;
+        }
 
         /* NAVBAR */
         .navbar {
@@ -65,7 +70,7 @@
             padding: 15px 40px;
             background: var(--glass-bg);
             border-bottom: 1px solid var(--glass-border);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -175,8 +180,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .dropdown button {
@@ -194,12 +206,12 @@
         }
 
         .dropdown button:hover {
-            background: rgba(0,0,0,0.05);
+            background: rgba(0, 0, 0, 0.05);
             color: var(--primary);
         }
 
         body.night-mode .dropdown button:hover {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         /* LIST & ITEMS */
@@ -250,7 +262,10 @@
         .header::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.1)" d="M0,100 C30,50 70,50 100,0 L100,100 Z"/></svg>');
             background-size: cover;
             pointer-events: none;
@@ -260,7 +275,7 @@
             margin: 0;
             font-size: 3em;
             font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .header p {
@@ -292,11 +307,11 @@
 
         .canteen-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         body.night-mode .canteen-card:hover {
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
 
         .canteen-img-container {
@@ -335,7 +350,9 @@
         }
 
         /* MENU CONTAINER */
-        .menu-container, .time-selection, .confirmation {
+        .menu-container,
+        .time-selection,
+        .confirmation {
             background: var(--bg-light);
             border-radius: 16px;
             padding: 30px;
@@ -344,13 +361,21 @@
             border: 1px solid var(--glass-border);
             animation: slideUp 0.4s ease;
         }
-        
+
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .menu-container h2, .time-header {
+        .menu-container h2,
+        .time-header {
             color: var(--primary);
             text-align: center;
             margin-top: 0;
@@ -435,7 +460,8 @@
             justify-content: center;
         }
 
-        .time-period::before, .time-period::after {
+        .time-period::before,
+        .time-period::after {
             content: "";
             height: 1px;
             background: var(--glass-border);
@@ -451,7 +477,7 @@
         }
 
         .time-btn {
-            background: rgba(0,0,0,0.03);
+            background: rgba(0, 0, 0, 0.03);
             border: 1px solid var(--glass-border);
             border-radius: 10px;
             padding: 12px;
@@ -463,16 +489,16 @@
         }
 
         body.night-mode .time-btn {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .time-btn:hover {
-            background: rgba(0,0,0,0.08);
+            background: rgba(0, 0, 0, 0.08);
             transform: translateY(-2px);
         }
 
         body.night-mode .time-btn:hover {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .time-btn.active {
@@ -480,7 +506,7 @@
             color: white;
             border-color: var(--primary);
             transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(255,106,0,0.4);
+            box-shadow: 0 4px 15px rgba(255, 106, 0, 0.4);
         }
 
         /* BUTTONS */
@@ -527,12 +553,35 @@
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .navbar { padding: 15px 20px; flex-direction: column; gap: 15px; }
-            .header h1 { font-size: 2.2em; }
-            .canteen-card { width: 100%; }
-            .time-slots { grid-template-columns: repeat(3, 1fr); }
-            .profile { width: 100%; display: flex; justify-content: center; }
-            .dropdown { right: auto; left: 50%; transform: translateX(-50%); }
+            .navbar {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header h1 {
+                font-size: 2.2em;
+            }
+
+            .canteen-card {
+                width: 100%;
+            }
+
+            .time-slots {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .profile {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .dropdown {
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
     </style>
 </head>
@@ -952,7 +1001,7 @@
             }
 
             // SEND ORDER TO BACKEND
-            fetch("http://localhost:3000/place-order", {
+            fetch("http://10.21.67.205:3000/place-order", {
 
                 method: "POST",
 
@@ -1002,7 +1051,7 @@
 
             const email = localStorage.getItem("userEmail");
 
-            fetch("http://localhost:3000/my-orders", {
+            fetch("http://10.21.67.205:3000/my-orders", {
 
                 method: "POST",
 

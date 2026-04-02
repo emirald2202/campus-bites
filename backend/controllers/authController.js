@@ -25,14 +25,15 @@ const sendOtp = (req, res) => {
     console.log("OTP for", email, ":", otp);
 
     res.json({
-        message: "OTP sent"
+        message: "OTP sent",
+        otp: otp
     });
 };
 
 const logVerOtp = async (req, res) => {
     const { email, otp } = req.body;
     const user = await User.findOne({ email: email });
-    
+
     if (otpService.verifyOtp(email, otp)) {
         res.json({
             message: "OTP verified",
